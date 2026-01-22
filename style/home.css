@@ -1,0 +1,114 @@
+body {
+    background-color: #0A071E;
+    color: #fff;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    padding: 0 40px;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.logo img{
+    height: 28px;
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover{
+    transform: scale(1.05);
+}
+
+.menu a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.header-icons span {
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+.hero {
+    height: 100dvh;
+    background: 
+    linear-gradient(to right, rgba(11,7,20,0.9), rgba(11,7,20,0.3)),
+    url("../img/home/bannerAtackOnTitan.jpg") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 80px;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+
+.hero-logo {
+    max-width: 320px;
+    margin-bottom: 20px;
+}
+
+.info { 
+    display: flex;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 15px;
+    color: #ccc;
+}
+
+.tag { 
+    border: 1px solid #8B3DFF;
+    background: transparent;
+    padding: 2px 8px;
+    border-radius: 14px;
+}
+
+.hero-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.buttons { 
+    display: flex;
+    gap: 12px;
+    
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-size:  14px;
+    background: transparent;
+    color: #fff;
+
+    transition: background 0.3s ease, transform 0.2s ease;
+}
