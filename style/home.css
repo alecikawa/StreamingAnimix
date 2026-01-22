@@ -3,119 +3,199 @@ body {
     color: #fff;
 }
 
-header{
-    position: fixed;
-    top: 0;
+/* NOVO HERO / BANNER */
+ .hero {
+    position: relative;
     width: 100%;
-    height: 70px;
+    height: 1200px;
+    margin-top: 0px; 
+    overflow: hidden;
+    max-height: 85dvh;
+ }
 
+ .hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    padding: 0 40px;
-    background: rgba(0, 0, 0, 0.0);
-    backdrop-filter: blur(1px);
+    padding-top: 80px;
+    padding-left: 60px;
+    background-size: cover;
+    background-position: center 20%;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+ }
+
+ .hero-slide.active { 
+    opacity: 1;
+    z-index: 2;
+ }
+
+ .arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 10;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-.logo img{
-    height: 28px;
-    transition: transform 0.3s ease;
-}
-
-.logo img:hover{
-    transform: scale(1.05);
-}
-
-.menu a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #ccc;
-    font-size: 18px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.menu a:hover {
-    transform: scale(1.05);
-    color: #fff;
-}
-
-.header-icons span {
-    margin-left: 15px;
-    cursor: pointer;
-}
-
-.hero {
-    height: 100dvh;
-    background: 
-    linear-gradient(to right, rgba(11,7,20,0.9), rgba(11,7,20,0.3)),
-    url("../img/home/bannerAtackOnTitan.jpg") center/cover no-repeat;
-
-    display: flex;
-    align-items: center;
-
-    padding: 0 80px;
-}
-
-.hero-content {
-    max-width: 500px;
-}
-
-
-.hero-logo {
-    max-width: 320px;
-    margin-bottom: 20px;
-}
-
-.info { 
-    display: flex;
-    gap: 10px;
-    font-size: 13px;
-    margin-bottom: 15px;
-    color: #ccc;
-}
-
-.tag { 
-    border: 1px solid #8B3DFF;
     background: transparent;
-    padding: 2px 8px;
-    border-radius: 14px;
-}
-
-.hero-content p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #ddd;
-}
-
-.buttons { 
-    display: flex;
-    gap: 12px;
-    
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 12px 20px;
     border: none;
-    border-radius: 6px;
+    color: white;
+    font-size: 24px;
+    padding: 20px;
     cursor: pointer;
+    border-radius: 50%;
 
-    font-size:  14px;
+    transition: all 0.4s ease;
+
+    opacity: 0;
+    visibility: hidden;
+ }
+
+ .hero:hover .arrow-btn {
+    opacity: 1;
+    visibility: visible;
+ }
+
+ .arrow-btn:hover { transform: translateY(-50%) scale(1.2);}
+ .prev { left: 5px; }
+ .next { right: 5px; }
+
+ .hero-content { 
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+
+ .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+ }
+
+ .hero-logo {
+    max-width: 350px;
+    margin-bottom: 10px;
+ }
+
+ .hero-info { 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 14px;
+    color: #ccc;
+ }
+
+ .stars {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: #555;
+ }
+
+ .star.filled { 
+    color: #ffd700;
+ }
+
+ .rating-number { 
+    margin-left: 5px;
+    color: #ccc;
+    font-weight: 600;
+ }
+
+ .tag { 
+    border: 1px solid #ccc;
+    padding: 2px 10px;
+    border-radius: 20px;
+ }
+
+ .hero-description {
+    max-width: 450px;
+    width: 100%;
+    line-height: 1.5;
+    color: #ddd;
+    font-size: 15px;
+    text-align: justify;
+
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+ }
+
+ .hero-buttons { 
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+ }
+
+.btn-play { 
+    background: #CFCFE6;
+    border: none;
+    border-radius: 15px;
+    color: #0F0B1E;
+    display: flex;
+    align-items: center;
+    padding: 6px 25px 6px 25px;
+    gap: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+ }
+
+ .play-icon-wrapper { 
+    width: 45px;
+    height: 45px;
     background: transparent;
-    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
 
-    transition: background 0.3s ease, transform 0.2s ease;
-}
+ .play-icon-wrapper img { 
+    width: 25px;
+ }
+
+ .btn-circle { 
+    width: 55px;
+    height: 55px;
+    background: #241A47;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.3s;
+ }
+
+ .btn-circle img { 
+    width: 22px;
+ }
+
+ .btn-play:hover { 
+    background: #a271d6;
+    transform: scale(1.05);
+ }
+
+ .btn-circle:hover { 
+    background: #453485;
+    transform: scale(1.05);
+ }
+ 
+
+
+
+ @media (max-width: 768px) {
+    .hero {
+        height: 350px;
+    }
+ }

@@ -7,71 +7,170 @@
 
     <link rel="icon" href="img/AnimixFavicon.ico" type="image/x-icon"> 
     <link rel="stylesheet" href="style/global.css">
+    <link rel="stylesheet" href="style/header.css">
     <link rel="stylesheet" href="style/home.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Header -->
     <header class="header">
         <div class="header-left">
             <a href="home.html" class="logo">
-                <img 
-                src="img/home/textLogo.png" 
-                alt="Animix - Página inicial"
-                >
+                <img src="img/home/textLogo.png" alt="Animix - Página inicial">
             </a>
 
             <nav class="menu">
-                <a href="#">Inicio</a>
-                <a href="#">Pesquisar</a>
+                <a href="home.html" class="active">Inicio</a>
+                <a href="novidades.html">Novidades</a>
                 <a href="#">Animes</a>
                 <a href="#">Kids</a>
             </nav>
-
         </div>
 
         <div class="header-icons">
-            <span><img src="img/home/Buttonpesquisar.png" alt=""></span>
-            <span><img src="img/home/ButtonNotion.png" alt=""></span>
-            <span><img src="img/home/Avatar.png" alt=""></span>
+            <button class="icon-btn"><img src="img/home/busca.png" alt="Pesquisar"></button>
+            <button class="icon-btn"><img src="img/home/sino.png" alt="Notificações"></button>
+            <img src="img/home/Avatar.png" alt="Perfil" class="avatar">
         </div>
     </header>
 
-    <!-- HERO / BANNER -->
+    <section class="hero">
+        <button class="arrow-btn prev" onclick="prevSlide()">&#10094;</button>
+        <button class="arrow-btn next" onclick="nextSlide()">&#10095;</button>
 
-     <section class="hero">
-        <div class="hero-content">
-            <img 
-            src="img/home/Attack-on-Titan-Logo.png" 
-            alt="Logo do Anime destaque"
-            class="hero-logo"
-            >
-        
+        <div class="carousel-inner">
 
-            <div class="info">
-            <span>2028</span>
-            <span>10 temporadas</span>
-            <span class="tag">Anime</span>
-            <span class="rating">★ 4.8</span>
-            </div>
+            <article class="hero-slide active" style="background-image: linear-gradient(to right, rgba(10,7,30,0.95) 30%, rgba(10,7,30,0.2) 100%),
+            linear-gradient(to bottom, rgba(10,7,30,0.5) 0%, transparent 20%),
+            url('img/home/bannerAtackOnTitan.jpg');">
+                <div class="hero-content">
+                    <header class="hero-slide-header">
+                        <h2 class="sr-only">Attack on Titan</h2>
 
-            <p>
-            Sinopse do anime destaque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+                        <img src="img/home/Attack-on-Titan-Logo.png" alt="Attack on Titan" class="hero-logo">
 
-            <div class="buttons">
-                <button class="btn btn-play"><img src="img/home/playButton.png" alt="/"> Play S1E1</button>
-                <button class="btn btn-add"><img src="img/home/plusButton.png" alt="/"></button>
-                <button class="btn btn-info"><img src="img/home/infoButton.png" alt="/"></button>
-            </div>
+                        <div class="hero-info">
+                            <time datetime="2009">2009</time> <span>4 Temporadas</span>
+                            <span class="tag">Anime</span>
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-number">4.8</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <p class="hero-description">Attack on Titan se passa em um mundo onde a humanidade vive cercada por enormes muralhas para se proteger dos Titãs...</p>
+                    
+                    <footer class="hero-buttons">
+                        <button class="btn-play" aria-label="Assistir Attack on Titan agora">
+                             <div class="play-icon-wrapper">
+                                  <img src="img/home/playButton.png" alt="" aria-hidden="true">
+                            </div>
+                             <span>Assista agora</span>
+                        </button>
+
+                        <button class="btn-circle" title="Adicionar à minha lista">
+                            <img src="img/home/maisIcon.png" alt="Ícone de adicionar à lista">
+                        </button>
+
+                        <button class="btn-circle" title="Pesquisar mais detalhes">
+                            <img src="img/home/busca.png" alt="Ícone de busca">
+                        </button>
+                    </footer>
+                </div> 
+            </article>
+
+            <article class="hero-slide" style="background-image: linear-gradient(to right, rgba(10,7,30,0.9), rgba(10,7,30,0.2)), url('img/home/BannerSuperonze.jpg');">
+                <div class="hero-content">
+                    <header class="hero-slide-header">
+                        <h2 class="sr-only">Attack on Titan</h2>
+
+                        <img src="img/home/Inazuma-Eleven-logo.png" alt="Inazuma Eleven" class="hero-logo">
+
+                        <div class="hero-info">
+                            <time datetime="2008">2008</time>
+                            <span>3 temporadas</span>
+                            <span class="tag">Anime</span>
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-number">4.8</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <p class="hero-description">Inazuma Eleven acompanha Endou Mamoru, um goleiro determinado que sonha em salvar o clube de futebol da sua escola. Ao lado de seus amigos...</p>
+
+                    <footer class="hero-buttons">
+                        <button class="btn-play">
+                            <div class="play-icon-wrapper">
+                                <img src="img/home/playButton.png" alt="Play">
+                            </div>
+                            <span>Assista agora</span>
+                        </button>
+
+                        <button class="btn-circle"><img src="img/home/maisIcon.png" alt="Adicionar"></button>
+                        <button class="btn-circle"><img src="img/home/busca.png" alt="Busca"></button>
+                    </footer>
+                </div>
+            </article>
+
+             <article class="hero-slide" style="background-image: linear-gradient(to right, rgba(10,7,30,0.9), rgba(10,7,30,0.2)), url('img/home/demon-slayer-wallpaper.jpg');">
+                <div class="hero-content">
+                    <header class="hero-slide-header">
+                        <h2 class="sr-only">Attack on Titan</h2>
+
+                        <img src="img/home/Inazuma-Eleven-logo.png" alt="Inazuma Eleven" class="hero-logo">
+
+                        <div class="hero-info">
+                            <time datetime="2008">2008</time>
+                            <span>3 temporadas</span>
+                            <span class="tag">Anime</span>
+                            <div class="stars">
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star filled">★</span>
+                                <span class="star">★</span>
+                                <span class="rating-number">4.8</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <p class="hero-description">Inazuma Eleven acompanha Endou Mamoru, um goleiro determinado que sonha em salvar o clube de futebol da sua escola. Ao lado de seus amigos...</p>
+
+                    <footer class="hero-buttons">
+                        <button class="btn-play">
+                            <div class="play-icon-wrapper">
+                                <img src="img/home/playButton.png" alt="Play">
+                            </div>
+                            <span>Assista agora</span>
+                        </button>
+
+                        <button class="btn-circle"><img src="img/home/maisIcon.png" alt="Adicionar"></button>
+                        <button class="btn-circle"><img src="img/home/busca.png" alt="Busca"></button>
+                    </footer>
+                </div>
+            </article>
         </div>
-     </section>
 
+        <div class="carousel-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+        </div>
+    </section>
 
+    <script src="script/home.js"></script>
 </body>
 </html>
