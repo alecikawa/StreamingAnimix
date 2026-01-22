@@ -4,40 +4,70 @@ body {
 }
 
 /* NOVO HERO / BANNER */
- .hero {
+.hero {
     position: relative;
     width: 100%;
-    height: 1200px;
-    margin-top: 0px; 
+    height: 85dvh;
     overflow: hidden;
-    max-height: 85dvh;
- }
+    z-index: 1; 
+}
+ 
+.hero::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 450px; 
+    background: linear-gradient(to top, #0A071E 10%, transparent 100%);
+    z-index: 2; 
+    pointer-events: none; 
+}
 
  .hero-slide {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
-    padding-top: 80px;
     padding-left: 60px;
     background-size: cover;
     background-position: center 20%;
+    opacity: 0; 
     transition: opacity 1s ease-in-out;
-    z-index: 1;
- }
+    z-index: 1; 
+}
 
- .hero-slide.active { 
+.hero-slide.active { 
     opacity: 1;
-    z-index: 2;
- }
+    z-index: 1; 
+}
+
+.hero-content { 
+    position: relative;
+    /* O z-index precisa ser MAIOR que o do ::after (2) */
+    z-index: 10; 
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trending {
+    position: relative;
+    z-index: 15; /* Acima do banner */
+    margin-top: -120px; /* Ajuste para subir os cards */
+    padding: 0 60px 40px 60px;
+    background-color: transparent;
+}
+
+
+ 
 
  .arrow-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 10;
+    z-index: 20;
     background: transparent;
     border: none;
     color: white;
@@ -57,16 +87,13 @@ body {
     visibility: visible;
  }
 
+
+
  .arrow-btn:hover { transform: translateY(-50%) scale(1.2);}
  .prev { left: 5px; }
  .next { right: 5px; }
 
- .hero-content { 
-    max-width: 550px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
- }
+ 
 
  .sr-only {
     position: absolute;
@@ -190,9 +217,71 @@ body {
     background: #453485;
     transform: scale(1.05);
  }
- 
+
+ /* AQUI COMEÇA A PARTE EM ALTA */
 
 
+
+ .section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+ }
+
+ .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+ }
+
+ .trend-list { 
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+ }
+
+ .trend-list::-webkit-scrollbar {
+    display: none;
+ }
+
+ .anime-card { 
+    min-width: 300px;
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+ }
+
+ .anime-card img { 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+
+ .anime-card:hover { 
+    transform: scale(1.05);
+    z-index: 2;
+ }
+
+ .trend-arrow {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 4px;
+ }
+
+ .trend-arrow.prev { left: -20px; }
+ .trend-arrow.next { right: -20px; }
 
  @media (max-width: 768px) {
     .hero {

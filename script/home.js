@@ -47,3 +47,26 @@ function resetTimer() {
     clearInterval(autoSlide);
     autoSlide = setInterval(nextSlide, 10000);
 }
+
+
+
+function scrollTrend(direction) {
+    // CORREÇÃO: O nome da classe no seu HTML é 'trend-list'
+    const list = document.getElementById('trendList'); 
+    const scrollAmount = 320; 
+
+    if (direction === 1) {
+        // Lógica para a DIREITA com Loop
+        const isAtEnd = list.scrollLeft + list.clientWidth >= list.scrollWidth - 10;
+        if (isAtEnd) {
+            list.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            list.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    } else {
+        // Lógica para a ESQUERDA (Só volta se não estiver no início)
+        if (list.scrollLeft > 0) {
+            list.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        }
+    }
+}
