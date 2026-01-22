@@ -1,16 +1,14 @@
+// --- LÓGICA DO BANNER PRINCIPAL (HERO) ---
 let currentSlide = 0;
 const slides = document.querySelectorAll('.hero-slide');
 const dots = document.querySelectorAll('.dot');
 
 function showSlide(index) {
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
+    // Remove classes ativas de todos
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
 
-    dots.forEach(dot => {
-        dot.classList.remove('active');
-    });
-
+    // Cálculo de índice para Loop infinito
     if (index >= slides.length) { 
         currentSlide = 0;
     } else if (index < 0) {
@@ -19,8 +17,8 @@ function showSlide(index) {
         currentSlide = index;
     }
 
+    // Ativa o slide e o dot correspondente
     slides[currentSlide].classList.add('active');
-
     if (dots.length > 0) {
         dots[currentSlide].classList.add('active');
     }
@@ -41,6 +39,7 @@ function goToSlide(n) {
     resetTimer();
 }
 
+// Timer para troca automática (10 segundos)
 let autoSlide = setInterval(nextSlide, 10000);
 
 function resetTimer() {
@@ -48,25 +47,31 @@ function resetTimer() {
     autoSlide = setInterval(nextSlide, 10000);
 }
 
-
-
+// --- LÓGICA DOS CARDS (EM ALTA) ---
 function scrollTrend(direction) {
-    // CORREÇÃO: O nome da classe no seu HTML é 'trend-list'
-    const list = document.getElementById('trendList'); 
-    const scrollAmount = 320; 
+    const list = document.getElementById('trendList');
+    const scrollAmount = 320; // Largura do card + gap
+
+    if (!list) return; // Segurança caso o elemento não exista
 
     if (direction === 1) {
-        // Lógica para a DIREITA com Loop
+        // Lógica para AVANÇAR (Direita)
+        // Verifica se o scroll chegou ao fim: (posição atual + largura visível >= largura total)
         const isAtEnd = list.scrollLeft + list.clientWidth >= list.scrollWidth - 10;
+        
         if (isAtEnd) {
+            // Se chegou no fim, volta para o começo (Loop)
             list.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
+            // Se não, avança normalmente
             list.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     } else {
-        // Lógica para a ESQUERDA (Só volta se não estiver no início)
+        // Lógica para VOLTAR (Esquerda)
+        // Só executa o scroll se não estiver no marco zero (início)
         if (list.scrollLeft > 0) {
             list.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         }
+        // Se estiver no 0, o botão simplesmente não faz nada (conforme solicitado)
     }
 }
