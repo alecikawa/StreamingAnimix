@@ -297,24 +297,26 @@ body {
 
 /* ✅ MANTÉM APENAS ESTA REGRA (sem duplicar) */
 .anime-card:hover .card-inner {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: 1000;
-
-  border-radius: 10px;
-  background: #141a29;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    position: absolute;
+    /* 1. Mude de -50px para 0 para ele não subir */
+    top: 0; 
+    left: 0;
+    width: 100%;
+    /* 2. O 'height: auto' fará o card crescer para baixo naturalmente */
+    height: auto; 
+    z-index: 1000;
+    background: #141a29;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .anime-card:hover .card-expanded-content { display: block; }
 
 .anime-card:hover .card-inner img {
-  height: 350px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
 
 /* Botões/infos (mantive como você já tem) */
