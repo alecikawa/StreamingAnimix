@@ -75,3 +75,31 @@ function scrollTrend(direction) {
         // Se estiver no 0, o botão simplesmente não faz nada (conforme solicitado)
     }
 }
+
+const cards = document.querySelectorAll('.anime-card');
+
+cards.forEach(card => {
+    card.addEventListener('mouseenter', (e) => {
+        const rect = card.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+
+        // Se o card estiver muito na borda esquerda ou direita, 
+        // evitamos que ele abra ou ajustamos a posição
+        if (rect.left < 50 || rect.right > windowWidth - 50) {
+            card.style.pointerEvents = 'none'; // Desabilita o card
+            setTimeout(() => card.style.pointerEvents = 'auto', 500); // Reabilita após o scroll
+        }
+    });
+});
+
+
+function scrollTrend(direction) {
+    const list = document.getElementById('trendList');
+    // Calcula quanto scrollar: largura de 2 cards + o gap entre eles
+    const scrollAmount = (260 + 20) * 2; 
+    
+    list.scrollBy({
+        left: direction * scrollAmount,
+        behavior: 'smooth'
+    });
+}
